@@ -1,0 +1,16 @@
+{% extends 'global/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <a href="{% url 'cars:register' %}" class="mb-3 mt-3 btn btn-success btn-lg">+ Adicionar Carro</a>
+        </div>
+        <div class="row">
+            {% for car in cars %}
+                {% include 'cars/partials/car.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

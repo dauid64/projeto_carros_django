@@ -1,0 +1,11 @@
+{% extends 'global/base.html' %}
+
+{% block title %}Registrar Carro{% endblock title %}
+
+{% block content %}
+    <div class="card mx-auto mt-5" style="width: 35rem;">
+        <div class="card-body">
+            {% include 'cars/partials/form.html' %}
+        </div>
+    </div>
+{% endblock content %}
