@@ -82,6 +82,18 @@ class RegisterUserForm(forms.ModelForm):
             )
         
         return email
+    
+    def clean_CPF(self):
+        cpf = self.cleaned_data.get('CPF', '')
+        exist = Person.objects.filter(
+            cpf=cpf
+        )
+        if exist:
+            raise ValidationError(
+                'CPF já cadastrado'
+            )
+        
+        return cpf
 
     def clean(self):
         cleaned_data = super().clean()
